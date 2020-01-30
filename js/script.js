@@ -20,10 +20,12 @@ pickForTextField.addEventListener('change', (e) => {
   input.setAttribute("id", "other-title");
   input.placeholder = "Your job role";
   if(e.target.value === 'other'){
+      pickOther.style.display = 'none';
       return firstFieldset.insertBefore(input, pickForTextField);
   }
-
-  pickOther.style.display = 'none';
+  if(e.target.value !== 'other'){
+    return pickOther.style.display = 'block';
+  }
 })
 
 //  3rd part
@@ -115,11 +117,15 @@ activities.addEventListener('change', (e) => {
             label[i].style.color = "#717171";
             console.log('true');
         }
+        else if(e.target.checked){
+          e.target.disabled = false;
+          e.target.parentElement.style.color ='black';
 
+        }
     }
 });
-
-
+const checkbox = document.querySelectorAll('.activities input');
+console.log(checkbox);
 
 // var deneme2 = document.querySelector('.activities').children;
 // console.log(deneme2);
