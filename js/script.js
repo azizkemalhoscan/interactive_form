@@ -111,19 +111,27 @@ activities.addEventListener('change', (e) => {
 
     for (let i = 0; i < checkbox.length; i++) {
 
-
-        if (checkbox[i].dataset.dayAndTime ===  e.target.dataset.dayAndTime) {
-            checkbox[i].disabled = true;
-            label[i].style.color = "#717171";
-            console.log('true');
-        }
-        else if(e.target.checked){
-          e.target.disabled = false;
-          e.target.parentElement.style.color ='black';
-
+        if (checkbox[i].dataset.dayAndTime ===  e.target.dataset.dayAndTime && e.target != checkbox[i]) {
+            if(e.target.checked){
+              checkbox[i].disabled = true;
+              label[i].style.color = "#717171";
+              console.log('true');
+        } else {
+          checkbox[i].disabled = false;
+          label[i].style.color = "black";
         }
     }
+  }
 });
+
+// activities.addEventListener('click', (e) => {
+//   if(e.target = e.target.checked){
+//     e.target.checked = false;
+//   } else if(e.target.checked === false) {
+//     e.target.checked = true;
+//   }
+// })
+
 const checkbox = document.querySelectorAll('.activities input');
 console.log(checkbox);
 
